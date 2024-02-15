@@ -6,12 +6,18 @@
 //
 
 import SwiftUI
+import FacebookLogin
 
 @main
 struct WearMeApp: App {
     var body: some Scene {
-        WindowGroup {
-            ContentView()
+            WindowGroup {
+                NavigationStack {
+                    SplashView()
+                        .onAppear(){
+                            ApplicationDelegate.shared.application(UIApplication.shared, didFinishLaunchingWithOptions: nil)
+                        }
+            }
         }
     }
 }
